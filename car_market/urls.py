@@ -1,3 +1,6 @@
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 from django.contrib import admin
 from django.urls import path
@@ -11,4 +14,8 @@ urlpatterns = [
     path('cars/create', views.car_create, name='car-create'),
     path('cars/<int:car_id>/update/', views.car_update, name='car-update'),
     path('cars/<int:car_id>/delete/', views.car_delete, name='car-delete'),
+
+
 ]
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

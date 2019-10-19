@@ -1,9 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Car Detail</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}
+	Car Detail
+{% endblock title %}
+
+{% block content %}
+		{%	if car.img %}
+		<img src="{{car.img.url}}"class="card-img-top" >
+		{%	endif %}
 		<h1>
 			{{car.make}} - {{car.model}}
 			<small>
@@ -11,5 +14,10 @@
 			</small>
 		</h1>
 		<hr>
-</body>
-</html>
+			<a href = "{% url 'car-update' car.id %}">
+			<button type ="button">Update</button>
+		</a>
+			<a href = "{% url 'car-delete' car.id %}">
+			<button type ="button">Delete :(</button>
+		</a>
+{% endblock content %}
