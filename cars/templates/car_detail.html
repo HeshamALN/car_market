@@ -4,20 +4,26 @@
 {% endblock title %}
 
 {% block content %}
-		{%	if car.img %}
-		<img src="{{car.img.url}}"class="card-img-top" >
-		{%	endif %}
-		<h1>
-			{{car.make}} - {{car.model}}
-			<small>
-				{{car.year}}
-			</small>
-		</h1>
-		<hr>
-			<a href = "{% url 'car-update' car.id %}">
-			<button type ="button">Update</button>
-		</a>
-			<a href = "{% url 'car-delete' car.id %}">
-			<button type ="button">Delete :(</button>
-		</a>
+<div class="container">
+ 			<div class="row">
+									{% if car.img %}
+					              <div class="col-md-6 order-1 order-md-0"><img class="img-fluid" src="{{car.img.url}}" alt=""></div>
+					              	{% endif %}
+									<h1>
+										{{car.make}} - {{car.model}}
+										<small>
+											{{car.year}}
+										</small>
+									</h1>
+									<hr>
+										<a href = "{% url 'car-update' car.id %}">
+										<button type ="button">Update</button>
+									</a>
+										<a href = "{% url 'car-delete' car.id %}">
+										<button type ="button">Delete :(</button>
+									</a>
+								</div>
+							</div>
 {% endblock content %}
+
+

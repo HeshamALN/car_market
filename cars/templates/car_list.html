@@ -7,18 +7,22 @@
  		<div class="container">
  			<div class="row">
  				{% for car in cars %}
-		 			<div class="card" style="auto">
-{# 			  			<img src="{{car.img.url}}" class="card-img-top">#}
-						<div class="card-body">
-				    		<h5 class="card-title">{{car.make}}</h5>
-				  	 		<p class="card-text">{{car.model}} - {{car.year}}</p>
+							<section class="py-5">
+					        <div class="container text-center">
+					          <div>
+					            <div class="row align-items-center text-md-left mb-5">
+					              
+					            	{% if car.img %}
+					              <div class="col-md-3 order-1 order-md-0"><img class="img-fluid" src="{{car.img.url}}" alt=""></div>
+					              	{% endif %}
 
-				    		<a href="{% url 'car-detail' car.id %}" class="btn btn-primary"> View </a>
-						</div>	
-					</div>
+					              <div class="col-md-6 mb-4 mb-md-0"><span class="display-3 mb-2">{{car.make}}</span>
+					                <h3 class="mb-4">{{car.model}} - {{car.year}}</h3>
+					              <a href="{% url 'car-detail' car.id %}" class="btn btn-primary"> View </a>
+					              </div>
+					            </div>
 				{% endfor %}			
 			</div>
 		</div>
-		
 {% endblock content %}
 
